@@ -54,7 +54,7 @@ class Food_Ordering_App:
             obj.my_order(order_count)
         else:
             print("\nUsername or Password is incorrect")
-            return obj.login_user
+            obj.login_user()
 
     def my_order(self,order_count):
         print("\nPlace New Order")
@@ -64,8 +64,8 @@ class Food_Ordering_App:
             2:"Vegan Burger (1 Piece) [INR 320]",
             3:"Truffle Cake (500gm) [INR 900]"
         }
-        order=False
-        entry=int(input("enter order no -"))
+        order = False
+        entry = int(input("enter order no -"))
         if(entry in self.food1.keys()):
             order=True
         
@@ -88,4 +88,3 @@ obj.login_info()
 obj.register_user()
 obj.login_user()
 obj.my_order()
-
