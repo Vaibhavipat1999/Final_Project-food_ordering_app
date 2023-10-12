@@ -1,13 +1,14 @@
 # --------------------------------- User ---------------------------------- #
-
 class Food_Ordering_App:
     def __init__ (self):
-        self.order    = {}
-        self.order_id = len(self.order)+1
-        self.personal_detail = {}
+        self.order={}
+        self.order_id=len(self.order)+1
+        self.personal_detail={}
+    
 
-    def user_details(self):
-        print('\n****** User details ******')
+    def register_user(self):
+        print("\n__________Welcome to B.B.C good food!!!__________")
+        print('\n****** Regiteration ******')
         self.Name      = input("Enter your Full Name: ")
         self.Mobile_no = int(input("Enter your Mobile no : "))
         self.Email     =  input("Enter your Email : ")
@@ -16,32 +17,9 @@ class Food_Ordering_App:
         self.items1    = {"full_name" : self.Name ,"mobile no." : self.Mobile_no ,"Email ID" : self.Email ,"Address" : self.Address ,"Password" : self.Password}
         self.customer_id= len(self.personal_detail)+1
         self.personal_detail[self.customer_id]=self.items1
-        print("------- user details are completed -------")
-
-    def login_info(self):
-        user = input('''\nIf you are already a User then enter "Yes" to login. If you are new user enter "No" for Regiteration : ''') 
-        if user.upper() == "YES": 
-            obj.login_user() 
-        else:
-            obj.register_user()
-            return user 
-
-    def register_user(self):    
-        print('\n****** Regiteration ******')
-        new_user = input("Enter a New Username : ")
-        if new_user == self.Name:
-            print("This username already exists!!!! ")
-            return new_user
-        else:
-            new_Password  = input("Enter a Strong Password: ")
-            re_Password   = input("Please Re-enter your Password: ") 
-            if self.Password == new_Password and new_Password  == re_Password:
-                print("Successful registration!")
-                order_count=0
-                obj.my_order(order_count)
-            else:
-                print("Invalid username/passord. Register again!")
-                return new_user
+        print()
+        print("The Regiteration details is filled by the customer ",self.personal_detail)
+        print("*** details are completed *** thank you!")
 
     def login_user(self):
         print('\n****** Login ******')
@@ -65,13 +43,13 @@ class Food_Ordering_App:
             3:"Truffle Cake (500gm) [INR 900]"
         }
         order = False
-        entry = int(input("enter order no -"))
+        entry = int(input("Enter order no --  \n"))
         if(entry in self.food1.keys()):
             order=True
         
         if order:
             print(self.food1.get(entry))
-            print("thank you visit again")
+            print("\nYour order is placed!\nThank you visit again")
             quit()
         else:
             order_count+=1
@@ -80,11 +58,9 @@ class Food_Ordering_App:
                 self.my_order(order_count)
             else:
                 quit()
-          
-        
+
 obj = Food_Ordering_App()
-obj.user_details()
-obj.login_info()
 obj.register_user()
 obj.login_user()
 obj.my_order()
+        
