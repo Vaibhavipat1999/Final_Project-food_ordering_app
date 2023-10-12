@@ -48,7 +48,7 @@ class Food_Ordering_App:
             order=True
         
         if order:
-            print(self.food1.get(entry))
+            print("your order : ",self.food1.get(entry))
             print("\nYour order is placed!\nThank you visit again")
             quit()
         else:
